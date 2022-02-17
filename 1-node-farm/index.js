@@ -1,4 +1,9 @@
 const fs = require('fs');
+const http = require('http');
+
+///////////////
+//Files
+///////////////
 
 //blocking synchronous
 /* const textIn  = fs.readFileSync('./starter/txt/input.txt', 'utf-8');
@@ -9,7 +14,7 @@ fs.writeFileSync('./starter/txt/output.txt', textOut);
 console.log('File written!'); */
 
 //non-blocking asynchronous
-fs.readFile('./starter/txt/starrrrrt.txt', 'utf-8', (err, data1) =>{//incorrect file name making the error message occur
+/* fs.readFile('./starter/txt/starrrrrt.txt', 'utf-8', (err, data1) =>{//incorrect file name making the error message occur
     if (err) return console.log('ERROR!💥');
     fs.readFile(`./starter/txt/${data1}.txt`, 'utf-8', (err, data2) =>{
         console.log(data2);
@@ -22,4 +27,17 @@ fs.readFile('./starter/txt/starrrrrt.txt', 'utf-8', (err, data1) =>{//incorrect 
         });
     });
 });
-console.log("Will read file");
+console.log("Will read file"); */
+
+
+///////////////
+//Server
+///////////////
+const server = http.createServer((req, res) => {
+    console.log(req);
+    res.end('Hello from the server!');
+});
+
+server.listen(8000, '127.0.0.1', () => {
+    console.log('Listening to requests on port 8000' );
+});
