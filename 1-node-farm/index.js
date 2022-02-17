@@ -9,7 +9,8 @@ fs.writeFileSync('./starter/txt/output.txt', textOut);
 console.log('File written!'); */
 
 //non-blocking asynchronous
-fs.readFile('./starter/txt/start.txt', 'utf-8', (err, data1) =>{
+fs.readFile('./starter/txt/starrrrrt.txt', 'utf-8', (err, data1) =>{//incorrect file name making the error message occur
+    if (err) return console.log('ERROR!💥');
     fs.readFile(`./starter/txt/${data1}.txt`, 'utf-8', (err, data2) =>{
         console.log(data2);
         fs.readFile('./starter/txt/append.txt', 'utf-8', (err, data3) =>{
