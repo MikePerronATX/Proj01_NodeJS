@@ -36,8 +36,8 @@ console.log("Will read file"); */
 ///////////////
 const server = http.createServer((req, res) => {
 
-    res.end('Hello from the server!');
-});
+    /* res.end('Hello from the server!'); */
+
 
     //console.log(req.url);
     const pathname = req.url;
@@ -46,9 +46,8 @@ const server = http.createServer((req, res) => {
         res.end('This is overview');
     } else if (pathname === '/product'){
         res.end('This is the product');
-        }
-    
-
+    }
+});
 
 /*     res.end('Hello from the server!');
 }); */
