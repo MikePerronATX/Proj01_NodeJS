@@ -35,10 +35,10 @@ console.log("Will read file"); */
 //Server
 ///////////////
 const server = http.createServer((req, res) => {
-<<<<<<< HEAD
+
     res.end('Hello from the server!');
 });
-=======
+
     //console.log(req.url);
     const pathname = req.url;
 
@@ -47,12 +47,12 @@ const server = http.createServer((req, res) => {
     } else if (pathname === '/product'){
         res.end('This is the product');
         }
-    });
+    
 
 
 /*     res.end('Hello from the server!');
 }); */
->>>>>>> 01d11e18d40b94ad0b3537ce1a74774d6368f440
+
 
 server.listen(8000, '127.0.0.1', () => {
     console.log('Listening to requests on port 8000' );
