@@ -33,6 +33,10 @@ console.log("Will read file"); */
 ///////////////
 //Server
 ///////////////
+const replaceTemplate = (temp, product) => {
+  let output = temp.replace('{%PRODUCTNAME%}', product.productName);
+}
+
 const tempOverview = fs.readFileSync(
   `${__dirname}/starter/templates/template-overview.html`,
   "utf-8"
@@ -57,9 +61,11 @@ const server = http.createServer((req, res) => {
 
 
     //OVERVIEW PAGE
-  if (pathName === "/" || pathName === "/overview") {
-    res.writeHead(200, { "Content-type": "text/html" });
+  if (pathName === '/' || pathName === '/overview') {
+    res.writeHead(200, { 'Content-type': 'text/html'});
     res.end(tempOverview);
+
+    const cardsHtml = dataObj.map(el => replaceTemplate(tempCard, el))
 
     //PRODUCT PAGE
   } else if (pathName === "/product") {
