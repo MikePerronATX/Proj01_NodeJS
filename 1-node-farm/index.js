@@ -47,26 +47,17 @@ const replaceTemplate = (temp, product) => {
   return output;
 }
 
-const tempOverview = fs.readFileSync(
-  `${__dirname}/starter/templates/template-overview.html`,
-  "utf-8"
-);
-const tempCard = fs.readFileSync(
-    `${__dirname}/starter/templates/template-card.html`,
-    "utf-8"
-  );
-  const tempProduct = fs.readFileSync(
-    `${__dirname}/starter/templates/template-product.html`,
-    "utf-8"
-  );
+const tempOverview = fs.readFileSync(`${__dirname}/starter/templates/template-overview.html`,"utf-8");
+const tempCard = fs.readFileSync(`${__dirname}/starter/templates/template-card.html`,"utf-8");
+const tempProduct = fs.readFileSync(`${__dirname}/starter/templates/template-product.html`,"utf-8");
 
-const data = fs.readFileSync(
-    `${__dirname}/starter/dev-data/data.json`,
-    "utf-8"
-  );
+const data = fs.readFileSync(`${__dirname}/starter/dev-data/data.json`,"utf-8");
 const dataObj = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
+
+  console.log(req.url);
+  console.log(url.parse(req.url, true))
   const pathName = req.url;
 
 
